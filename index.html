@@ -108,7 +108,7 @@
 </div>
 
 <script>
-// Comprehensive list of currencies (ISO 4217)
+
 const currencies = [
     { code: "AED", name: "United Arab Emirates Dirham" },
     { code: "AFN", name: "Afghan Afghani" },
@@ -266,7 +266,7 @@ const currencies = [
     { code: "ZWL", name: "Zimbabwean Dollar" }
 ];
 
-// Display currency list
+
 function displayCurrencyList(currencies, type) {
     const listContainer = document.getElementById(`currencyList${type.charAt(0).toUpperCase() + type.slice(1)}`);
     listContainer.innerHTML = "";
@@ -280,7 +280,7 @@ function displayCurrencyList(currencies, type) {
     listContainer.style.display = currencies.length > 0 ? "block" : "none";
 }
 
-// Filter currencies
+
 function filterCurrencies(type) {
     const input = document.getElementById(`currency${type.charAt(0).toUpperCase() + type.slice(1)}`).value.toLowerCase();
     const filteredCurrencies = currencies.filter(currency => 
@@ -289,15 +289,15 @@ function filterCurrencies(type) {
     displayCurrencyList(filteredCurrencies, type);
 }
 
-// Select currency
+
 function selectCurrency(currencyCode, type) {
     document.getElementById(`currency${type.charAt(0).toUpperCase() + type.slice(1)}`).value = currencyCode;
     document.getElementById(`currencyList${type.charAt(0).toUpperCase() + type.slice(1)}`).style.display = "none";
 }
 
-// Fetch and convert currency
+
 async function fetchExchangeRates() {
-    // Fetch by a base currency, here using USD
+    
     const response = await fetch(`https://open.er-api.com/v6/latest/USD`);
     if (!response.ok) {
         throw new Error("Failed to fetch exchange rates");
